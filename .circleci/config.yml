@@ -6,6 +6,15 @@ jobs:
     steps:
       - checkout
       - run:
+          name: cd to project root
+          command: cd go/proxyd/
+      - run:
+          name: build project
+          command: make proxyd
+      - run:
+          name: check version
+          command: ./bin/proxyd --version
+      - run:
           name: where and whoami
           command: pwd && whoami
       - run:
