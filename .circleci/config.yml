@@ -6,14 +6,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: cd to project root
-          command: |
-            cd go/proxyd/
-            make proxyd
-            ./bin/proxyd --version
+          name: run redis
+          command: redis
+          background: true
       - run:
-          name: where and whoami
-          command: pwd && whoami
-      - run:
-          name: whats here
-          command: ls -l
+          name: test
+          working_directory: go/proxyd/
+          command: make test
