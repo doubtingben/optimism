@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: run redis
-          command: apt-get install -y redis && redis
+          command: sudo apt-get install -y redis && redis
           background: true
       - run:
           name: test
